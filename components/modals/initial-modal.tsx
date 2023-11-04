@@ -1,6 +1,7 @@
 "use client";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 
 import { useForm } from "react-hook-form";
 import {
@@ -23,6 +24,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import FileUpload from "../file-upload";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -34,6 +36,7 @@ const formSchema = z.object({
 });
 
 export const InitialModal = () => {
+  const router = useRouter();
   // hydration error fix
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -51,7 +54,15 @@ export const InitialModal = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    try {
+      await axios.post("/api/servers", values);
+
+      form.reset();
+      router.refresh();
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (!mounted) return null;
