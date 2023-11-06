@@ -25,6 +25,7 @@ import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import FileUpload from "../file-upload";
 import { useRouter } from "next/navigation";
+import { SignOutButton } from "@clerk/nextjs";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -70,6 +71,9 @@ export const InitialModal = () => {
   return (
     <Dialog open={true}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden rounded-md">
+        <div className="text-xs absolute top-1 left-1">
+          <SignOutButton>sign out</SignOutButton>
+        </div>
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
             Customize your server
