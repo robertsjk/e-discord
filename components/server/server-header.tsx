@@ -9,7 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Button } from "../ui/button";
 import {
   ChevronDown,
   LogOut,
@@ -79,13 +78,19 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
         )}
         {isModerator && <DropdownMenuSeparator />}
         {isAdmin && (
-          <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer text-rose-400">
+          <DropdownMenuItem
+            onClick={() => onOpen("deleteServer", { server })}
+            className="px-3 py-2 text-sm cursor-pointer text-rose-400"
+          >
             Delete Server
             <Trash className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}
         {!isAdmin && (
-          <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer text-rose-400">
+          <DropdownMenuItem
+            onClick={() => onOpen("leaveServer", { server })}
+            className="px-3 py-2 text-sm cursor-pointer text-rose-400"
+          >
             Leave Server
             <LogOut className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
