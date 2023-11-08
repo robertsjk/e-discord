@@ -149,7 +149,7 @@ model DirectMessage {
   member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
 
   conversationId  String
-  conersation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime  @updatedAt
