@@ -1,8 +1,15 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import ModalProvider from "@/components/providers/modal-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Poppins({
+  weight: ["200", "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Spotify",
@@ -15,8 +22,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={font.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            storageKey="discord-theme"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <ModalProvider />
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
