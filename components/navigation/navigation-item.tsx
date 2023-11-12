@@ -30,7 +30,7 @@ const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
         />
         <div
           className={cn(
-            "relative mx-3 h-11 w-11 rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden bg-primary/10 ",
+            "relative mx-3 h-11 w-11 rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden bg-secondary ",
             params?.serverId === id && "text-primary rounded-[16px]"
           )}
         >
