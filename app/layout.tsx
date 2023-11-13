@@ -5,6 +5,8 @@ import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import ModalProvider from "@/components/providers/modal-provider";
+import QueryProvider from "@/components/providers/query-provider";
+// import { SocketProvider } from "@/components/providers/socket-provider";
 
 const font = Poppins({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -12,8 +14,8 @@ const font = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Spotify",
-  description: "Spotify",
+  title: "e-Discord",
+  description: "discord clone",
 };
 
 export default function RootLayout({
@@ -33,7 +35,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ModalProvider />
-            {children}
+            <QueryProvider>{children}</QueryProvider>
           </ThemeProvider>
         </body>
       </html>

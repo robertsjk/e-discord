@@ -10,9 +10,12 @@ export type ModalType =
   | "leaveServer"
   | "deleteServer"
   | "deleteChannel"
-  | "editChannel";
+  | "editChannel"
+  | "messageFile";
 
 type ModalData = {
+  apiUrl?: string;
+  query?: Record<string, any>;
   server?: Server;
   channel?: Channel;
   channelType?: ChannelType;
@@ -30,6 +33,6 @@ export const useModal = create<ModalStore>((set) => ({
   type: null,
   data: {},
   isOpen: false,
-  onOpen: (type, data) => set({ isOpen: true, type, data }),
+  onOpen: (type, data = {}) => set({ isOpen: true, type, data }),
   onClose: () => set({ type: null, isOpen: false, data: {} }),
 }));

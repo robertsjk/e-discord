@@ -11,11 +11,16 @@ import { Button } from "../ui/button";
 import { Check, Copy, RefreshCcw } from "lucide-react";
 
 const InviteModal = () => {
-  const { isOpen, type, onClose, onOpen, data } = useModal();
+  const {
+    isOpen,
+    type,
+    onClose,
+    onOpen,
+    data: { server },
+  } = useModal();
   const origin = useOrigin();
 
   const isModalOpen = isOpen && type === "invite";
-  const { server } = data;
 
   const [copied, setCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
