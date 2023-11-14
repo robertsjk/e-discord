@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import ModalProvider from "@/components/providers/modal-provider";
 import QueryProvider from "@/components/providers/query-provider";
+import { SocketProvider } from "@/components/providers/socket-provider";
 // import { SocketProvider } from "@/components/providers/socket-provider";
 
 const font = Poppins({
@@ -34,8 +35,10 @@ export default function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <ModalProvider />
-            <QueryProvider>{children}</QueryProvider>
+            <SocketProvider>
+              <ModalProvider />
+              <QueryProvider>{children}</QueryProvider>
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>

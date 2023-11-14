@@ -1,4 +1,3 @@
-import { SocketProvider } from "@/components/providers/socket-provider";
 import ServerSidebar from "@/components/server/server-sidebar";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
@@ -38,9 +37,7 @@ const ServerIdLayout = async ({
       <div className="hidden md:flex h-full w-60 flex-col fixed inset-y-0 z-20">
         <ServerSidebar serverId={params.serverId} />
       </div>
-      <SocketProvider>
-        <main className="h-full md:pl-60">{children}</main>
-      </SocketProvider>
+      <main className="h-full md:pl-60">{children}</main>
     </div>
   );
 };
