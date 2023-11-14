@@ -1,18 +1,4 @@
 "use client";
-<<<<<<< HEAD
-import { ServerWithMembersWithProfiles } from "@/types";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "../ui/dialog";
-import { useModal } from "@/hooks/use-modal-store";
-import { ScrollArea } from "../ui/scroll-area";
-import UserAvatar from "../user-avatar";
-=======
->>>>>>> v-2
 import {
   Check,
   Gavel,
@@ -23,9 +9,6 @@ import {
   ShieldCheck,
   ShieldQuestion,
 } from "lucide-react";
-<<<<<<< HEAD
-import { useState } from "react";
-=======
 import {
   Dialog,
   DialogContent,
@@ -39,7 +22,6 @@ import { useState } from "react";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { ScrollArea } from "../ui/scroll-area";
 import UserAvatar from "../user-avatar";
->>>>>>> v-2
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -54,10 +36,6 @@ import {
 import { MemberRole } from "@prisma/client";
 import qs from "query-string";
 import axios from "axios";
-<<<<<<< HEAD
-import { useRouter } from "next/navigation";
-=======
->>>>>>> v-2
 
 const roleIconMap = {
   GUEST: null,
@@ -65,46 +43,16 @@ const roleIconMap = {
   ADMIN: <ShieldAlert className="h-4 w-4 text-rose-500" />,
 };
 
-<<<<<<< HEAD
-export const MembersModal = () => {
-=======
 const MembersModal = () => {
->>>>>>> v-2
   const { isOpen, type, onClose, onOpen, data } = useModal();
   const router = useRouter();
 
   const [loadingId, setLoadingId] = useState("");
 
   const isModalOpen = isOpen && type === "members";
-<<<<<<< HEAD
-  const { server } = data as { server: ServerWithMembersWithProfiles };
-
-  const onKick = async (memberId: string) => {
-    try {
-      setLoadingId(memberId);
-      const url = qs.stringifyUrl({
-        url: `/api/members/${memberId}`,
-        query: {
-          serverId: server?.id,
-        },
-      });
-
-      const response = await axios.delete(url);
-
-      router.refresh();
-      onOpen("members", { server: response.data });
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoadingId("");
-    }
-  };
-
-=======
 
   const { server } = data as { server: ServerWithMembersWithProfiles };
 
->>>>>>> v-2
   const onRoleChange = async (memberId: string, role: MemberRole) => {
     try {
       setLoadingId(memberId);
@@ -125,8 +73,6 @@ const MembersModal = () => {
     }
   };
 
-<<<<<<< HEAD
-=======
   const onKick = async (memberId: string) => {
     try {
       setLoadingId(memberId);
@@ -149,7 +95,6 @@ const MembersModal = () => {
     }
   };
 
->>>>>>> v-2
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
       <DialogContent className="bg-white text-black overflow-hidden rounded-md">
@@ -157,11 +102,7 @@ const MembersModal = () => {
           <DialogTitle className="text-2xl text-center font-bold">
             Manage Members
           </DialogTitle>
-<<<<<<< HEAD
-          <DialogDescription className="text-center text-zinc-500">
-=======
           <DialogDescription className="text-center text-stone-600">
->>>>>>> v-2
             {server?.members?.length} Members
           </DialogDescription>
         </DialogHeader>
@@ -174,11 +115,7 @@ const MembersModal = () => {
                   {member.profile.name}
                   {roleIconMap[member.role]}
                 </div>
-<<<<<<< HEAD
-                <p className="text-xs text-zinc-500">{member.profile.email}</p>
-=======
                 <p className="text-xs text-stone-600">{member.profile.email}</p>
->>>>>>> v-2
               </div>
               {server.profileId !== member.profileId &&
                 loadingId !== member.id && (
@@ -228,11 +165,7 @@ const MembersModal = () => {
                   </div>
                 )}
               {loadingId === member.id && (
-<<<<<<< HEAD
-                <Loader2 className="animate-spin text-zinc-500 ml-auto w-4 h-4" />
-=======
                 <Loader2 className="animate-spin text-stone-600 ml-auto w-4 h-4" />
->>>>>>> v-2
               )}
             </div>
           ))}
@@ -241,8 +174,5 @@ const MembersModal = () => {
     </Dialog>
   );
 };
-<<<<<<< HEAD
-=======
 
 export default MembersModal;
->>>>>>> v-2

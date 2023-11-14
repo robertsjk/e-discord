@@ -8,8 +8,4 @@ const db = globalThis.prisma || new PrismaClient();
 
 if (process.env.NODE_ENV !== "production") globalThis.prisma = db;
 
-<<<<<<< HEAD
-export default db;
-=======
 export { db };
->>>>>>> v-2

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-"use client";
-
-=======
->>>>>>> v-2
 import {
   Tooltip,
   TooltipContent,
@@ -24,11 +19,7 @@ const ActionTooltip = ({
   align,
 }: ActionTooltipProps) => {
   return (
-<<<<<<< HEAD
-    <TooltipProvider delayDuration={600}>
-=======
     <TooltipProvider delayDuration={400}>
->>>>>>> v-2
       <Tooltip>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent

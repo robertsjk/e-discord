@@ -33,15 +33,6 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
 
   return (
     <DropdownMenu>
-<<<<<<< HEAD
-      <DropdownMenuTrigger className="focus:outline-none" asChild>
-        <button className="w-full text-md font-semibold px-3 flex items-center h-12 border-neutral-200 dark:border-neutral-800 border-b-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition">
-          {server.name}
-          <ChevronDown className="h-5 w-5 ml-auto " />
-        </button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">
-=======
       <DropdownMenuTrigger asChild className="focus:outline-none">
         <button className="w-full px-3 h-12 border-secondary border-b-2 hover:bg-secondary/50 transition flex items-center">
           {server.name}
@@ -49,7 +40,6 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="text-card-foreground">
->>>>>>> v-2
         {isModerator && (
           <DropdownMenuItem
             onClick={() => onOpen("invite", { server })}
@@ -73,11 +63,7 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
             onClick={() => onOpen("members", { server })}
             className="px-3 py-2 text-sm cursor-pointer"
           >
-<<<<<<< HEAD
-            Manage Members
-=======
             Manage Members&nbsp;
->>>>>>> v-2
             <Users className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}

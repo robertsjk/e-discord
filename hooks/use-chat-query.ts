@@ -30,21 +30,6 @@ export const useChatQuery = ({
     );
 
     const res = await fetch(url);
-<<<<<<< HEAD
-    return res.json();
-  };
-
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
-    useInfiniteQuery({
-      initialPageParam: undefined,
-      queryKey: [queryKey],
-      queryFn: fetchMessages,
-      getNextPageParam: (lastPage) => lastPage?.nextCursor,
-      refetchInterval: isConnected ? false : 1000,
-    });
-
-  return { data, fetchNextPage, hasNextPage, isFetchingNextPage, status };
-=======
 
     return res.json();
   };
@@ -71,5 +56,4 @@ export const useChatQuery = ({
     status,
     refetch,
   };
->>>>>>> v-2
 };

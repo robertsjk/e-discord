@@ -18,20 +18,11 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
 
   if (value && fileType !== "pdf") {
     return (
-<<<<<<< HEAD
-      <div className="relative h-20 w-20">
-        <Image fill src={value} alt="upload" className="rounded-full" />
-        <button
-          onClick={() => onChange("")}
-          className="bg-rose-500 text-white p-1 rounded-full absolute top-0 right-0 shadow-sm"
-          type="button"
-=======
       <div className="w-20 h-20 relative">
         <Image fill src={value} alt="server image" className="rounded-full" />
         <button
           onClick={() => onChange("")}
           className="bg-rose-500 text-white p-1 rounded-full absolute top-0 right-0 shadow-sm"
->>>>>>> v-2
         >
           <X className="h-4 w-4" />
         </button>
@@ -63,22 +54,12 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
   }
 
   return (
-<<<<<<< HEAD
-    <div>
-=======
     <div className="w-full">
->>>>>>> v-2
       <UploadDropzone
         endpoint={endpoint}
         onClientUploadComplete={(res) => {
           onChange(res?.[0].url);
         }}
-<<<<<<< HEAD
-        onUploadError={(error: Error) => {
-          console.log(error);
-        }}
-      />
-=======
         onUploadError={(error: Error) => console.log(error)}
       />
       {endpoint === "serverImage" && (
@@ -89,7 +70,6 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
           Use default
         </div>
       )}
->>>>>>> v-2
     </div>
   );
 };

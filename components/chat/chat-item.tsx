@@ -1,23 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
-import { Member, MemberRole, Profile } from "@prisma/client";
-import UserAvatar from "../user-avatar";
-import ActionTooltip from "../action-tooltip";
-import { Edit, FileIcon, ShieldAlert, ShieldCheck, Trash } from "lucide-react";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import qs from "query-string";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem } from "../ui/form";
-import axios from "axios";
-import { useParams, useRouter } from "next/navigation";
-=======
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Member, MemberRole, Profile } from "@prisma/client";
 import axios from "axios";
@@ -34,7 +16,6 @@ import Image from "next/image";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
->>>>>>> v-2
 import { useModal } from "@/hooks/use-modal-store";
 
 type ChatItemProps = {
@@ -74,19 +55,11 @@ const ChatItem = ({
   socketUrl,
   socketQuery,
 }: ChatItemProps) => {
-<<<<<<< HEAD
-  const [isEditing, setIsEditing] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const { onOpen } = useModal();
-  const router = useRouter();
-  const params = useParams();
-=======
   const { onOpen } = useModal();
   const router = useRouter();
   const params = useParams();
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
->>>>>>> v-2
 
   const onMemberClick = () => {
     if (member.id === currentMember.id) {
@@ -128,10 +101,6 @@ const ChatItem = ({
 
       form.reset();
       setIsEditing(false);
-<<<<<<< HEAD
-      router.refresh();
-=======
->>>>>>> v-2
     } catch (error) {
       console.log(error);
     }
@@ -175,13 +144,7 @@ const ChatItem = ({
                 {roleIconMap[member.role]}
               </ActionTooltip>
             </div>
-<<<<<<< HEAD
-            <span className="text-xs text-zinc-500 dark:text-zinc-400">
-              {timestamp}
-            </span>
-=======
             <span className="text-xs text-foreground/50">{timestamp}</span>
->>>>>>> v-2
           </div>
           {isImage && (
             <a
@@ -214,23 +177,13 @@ const ChatItem = ({
           {!fileUrl && !isEditing && (
             <p
               className={cn(
-<<<<<<< HEAD
-                "text-sm text-zinc-600 dark:text-zinc-300",
-                deleted &&
-                  "italic text-zinc-500 dark:text-zinc-400 text-xs mt-1"
-=======
                 "text-sm text-foreground/50",
                 deleted && "italic text-foreground/60 text-xs mt-1"
->>>>>>> v-2
               )}
             >
               {content}
               {isUpdated && !deleted && (
-<<<<<<< HEAD
-                <span className="text-[10px] mx-2 text-zinc-500 dark:text-zinc-400">
-=======
                 <span className="text-[10px] mx-2 text-foreground/50">
->>>>>>> v-2
                   (edited)
                 </span>
               )}
@@ -251,11 +204,7 @@ const ChatItem = ({
                         <div className="relative w-full">
                           <Input
                             disabled={isLoading}
-<<<<<<< HEAD
-                            className="p-2 bg-zinc-200/90 dark:bg-zinc-700/75 border-none border-0 focus-visible:ring-0 focus-visible-offset-0 text-zinc-600 dark:text-zinc-200"
-=======
                             className="p-2 bg-foreground/10 border-none border-0 focus-visible:ring-0 focus-visible-offset-0 text-foreground/80"
->>>>>>> v-2
                             placeholder="Edited message"
                             {...field}
                           />
@@ -268,11 +217,7 @@ const ChatItem = ({
                   Save
                 </Button>
               </form>
-<<<<<<< HEAD
-              <span className="text-[10px] mt-1 text-zinc-400">
-=======
               <span className="text-[10px] mt-1 text-stone-500">
->>>>>>> v-2
                 Press escape to cancel, enter to save
               </span>
             </Form>
@@ -280,20 +225,12 @@ const ChatItem = ({
         </div>
       </div>
       {canDeleteMessage && (
-<<<<<<< HEAD
-        <div className="hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 right-5 bg-white dark:bg-zinc-800 border rounded-sm">
-=======
         <div className="hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 right-5 group-hover:bg-black/5  rounded-sm ">
->>>>>>> v-2
           {canEditMessage && (
             <ActionTooltip label="edit">
               <Edit
                 onClick={() => setIsEditing(!isEditing)}
-<<<<<<< HEAD
-                className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300"
-=======
                 className="cursor-pointer ml-auto w-4 h-4 text-foreground/40 hover:text-foreground/70"
->>>>>>> v-2
               />
             </ActionTooltip>
           )}
@@ -305,11 +242,7 @@ const ChatItem = ({
                   query: socketQuery,
                 })
               }
-<<<<<<< HEAD
-              className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300"
-=======
               className="cursor-pointer ml-auto w-4 h-4 text-foreground/40 hover:text-foreground/70"
->>>>>>> v-2
             />
           </ActionTooltip>
         </div>

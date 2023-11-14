@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import { currentProfile } from "@/lib/current-profile";
-<<<<<<< HEAD
-import db from "@/lib/db";
-=======
 import { db } from "@/lib/db";
->>>>>>> v-2
 import { MemberRole } from "@prisma/client";
 
 export async function DELETE(
@@ -17,23 +13,11 @@ export async function DELETE(
 
     const serverId = searchParams.get("serverId");
 
-<<<<<<< HEAD
-    if (!profile) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
-    if (!serverId) {
-      return new NextResponse("Server ID missing", { status: 400 });
-    }
-    if (!params.channelId) {
-      return new NextResponse("Channel ID missing", { status: 400 });
-    }
-=======
     if (!profile) return new NextResponse("Unauthorized", { status: 401 });
     if (!serverId)
       return new NextResponse("Server ID missing", { status: 400 });
     if (!params.channelId)
       return new NextResponse("Channel ID missing", { status: 400 });
->>>>>>> v-2
 
     const server = await db.server.update({
       where: {
@@ -65,10 +49,6 @@ export async function DELETE(
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> v-2
 export async function PATCH(
   req: Request,
   { params }: { params: { channelId: string } }
@@ -80,20 +60,6 @@ export async function PATCH(
 
     const serverId = searchParams.get("serverId");
 
-<<<<<<< HEAD
-    if (!profile) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
-    if (!serverId) {
-      return new NextResponse("Server ID missing", { status: 400 });
-    }
-    if (!params.channelId) {
-      return new NextResponse("Channel ID missing", { status: 400 });
-    }
-    if (name === "general") {
-      return new NextResponse("Name cannot be 'general'", { status: 400 });
-    }
-=======
     if (!profile) return new NextResponse("Unauthorized", { status: 401 });
     if (!serverId)
       return new NextResponse("Server ID missing", { status: 400 });
@@ -101,7 +67,6 @@ export async function PATCH(
       return new NextResponse("Channel ID missing", { status: 400 });
     if (name === "general")
       return new NextResponse("Name cannot be 'general'", { status: 400 });
->>>>>>> v-2
 
     const server = await db.server.update({
       where: {

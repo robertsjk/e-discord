@@ -1,9 +1,5 @@
 import { Menu } from "lucide-react";
-<<<<<<< HEAD
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
-=======
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
->>>>>>> v-2
 import { Button } from "./ui/button";
 import NavigationSidebar from "./navigation/navigation-sidebar";
 import ServerSidebar from "./server/server-sidebar";

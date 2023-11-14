@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Channel, ChannelType, Member, Server } from "@prisma/client";
-=======
 import { Channel, ChannelType, Server } from "@prisma/client";
->>>>>>> v-2
 import { create } from "zustand";
 
 export type ModalType =
@@ -18,15 +14,6 @@ export type ModalType =
   | "messageFile"
   | "deleteMessage";
 
-<<<<<<< HEAD
-interface ModalData {
-  server?: Server;
-  channel?: Channel;
-  channelType?: ChannelType;
-  apiUrl?: string;
-  query?: Record<string, any>;
-}
-=======
 type ModalData = {
   apiUrl?: string;
   query?: Record<string, any>;
@@ -34,7 +21,6 @@ type ModalData = {
   channel?: Channel;
   channelType?: ChannelType;
 };
->>>>>>> v-2
 
 type ModalStore = {
   type: ModalType | null;
@@ -48,11 +34,6 @@ export const useModal = create<ModalStore>((set) => ({
   type: null,
   data: {},
   isOpen: false,
-<<<<<<< HEAD
-  onOpen: (type, data) => set({ isOpen: true, type, data }),
-  onClose: () => set({ type: null, isOpen: false }),
-=======
   onOpen: (type, data = {}) => set({ isOpen: true, type, data }),
   onClose: () => set({ type: null, isOpen: false, data: {} }),
->>>>>>> v-2
 }));

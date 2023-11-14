@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import db from "@/lib/db";
-=======
 import { db } from "./db";
->>>>>>> v-2
 
 export const getOrCreateConversation = async (
   memberOneId: string,
@@ -66,11 +62,7 @@ const createNewConversation = async (
         },
       },
     });
-<<<<<<< HEAD
-  } catch {
-=======
   } catch (error) {
->>>>>>> v-2
     return null;
   }
 };
