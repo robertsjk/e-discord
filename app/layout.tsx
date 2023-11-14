@@ -1,18 +1,22 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import ModalProvider from "@/components/providers/modal-provider";
-import { SocketProvider } from "@/components/providers/socket-provider";
 import QueryProvider from "@/components/providers/query-provider";
+import { SocketProvider } from "@/components/providers/socket-provider";
+// import { SocketProvider } from "@/components/providers/socket-provider";
 
-const font = Open_Sans({ subsets: ["latin"] });
+const font = Poppins({
+  weight: ["200", "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "e-discord",
-  description: "e-discord",
+  title: "e-Discord",
+  description: "discord clone",
 };
 
 export default function RootLayout({
@@ -23,7 +27,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
+        <body className={font.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"

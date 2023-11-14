@@ -7,6 +7,10 @@ type ChatSocketProps = {
   addKey: string;
   updateKey: string;
   queryKey: string;
+<<<<<<< HEAD
+=======
+  refetch: any;
+>>>>>>> v-2
 };
 
 type MessageWithMemberWithProfile = Message & {
@@ -19,6 +23,10 @@ export const useChatSocket = ({
   addKey,
   updateKey,
   queryKey,
+<<<<<<< HEAD
+=======
+  refetch,
+>>>>>>> v-2
 }: ChatSocketProps) => {
   const { socket } = useSocket();
   const queryClient = useQueryClient();
@@ -29,6 +37,11 @@ export const useChatSocket = ({
     }
 
     socket.on(updateKey, (message: MessageWithMemberWithProfile) => {
+<<<<<<< HEAD
+=======
+      socket.disconnect();
+      socket.connect();
+>>>>>>> v-2
       queryClient.setQueryData([queryKey], (oldData: any) => {
         if (!oldData || !oldData.pages || oldData.pages.length === 0) {
           return oldData;
@@ -54,7 +67,17 @@ export const useChatSocket = ({
     });
 
     socket.on(addKey, (message: MessageWithMemberWithProfile) => {
+<<<<<<< HEAD
       queryClient.setQueryData([queryKey], (oldData: any) => {
+=======
+      socket.disconnect();
+      socket.connect();
+
+      queryClient.setQueryData([queryKey], (oldData: any) => {
+        console.log(oldData);
+
+        if (!oldData) refetch();
+>>>>>>> v-2
         if (!oldData || !oldData.pages || oldData.pages.length === 0) {
           return {
             pages: [
@@ -83,5 +106,9 @@ export const useChatSocket = ({
       socket.off(addKey);
       socket.off(updateKey);
     };
+<<<<<<< HEAD
   }, [queryClient, addKey, queryKey, socket, updateKey]);
+=======
+  }, [queryClient, addKey, queryKey, socket, updateKey, refetch]);
+>>>>>>> v-2
 };

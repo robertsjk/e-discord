@@ -1,5 +1,10 @@
 import { currentProfile } from "@/lib/current-profile";
+<<<<<<< HEAD
 import db from "@/lib/db";
+=======
+import { db } from "@/lib/db";
+import { NextApiResponse } from "next";
+>>>>>>> v-2
 import { NextResponse } from "next/server";
 
 export async function DELETE(
@@ -11,6 +16,7 @@ export async function DELETE(
     const { searchParams } = new URL(req.url);
     const serverId = searchParams.get("serverId");
 
+<<<<<<< HEAD
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
@@ -22,6 +28,15 @@ export async function DELETE(
     if (!params.memberId) {
       return new NextResponse("Member ID missing", { status: 400 });
     }
+=======
+    if (!profile) return new NextResponse("Unauthorized", { status: 401 });
+    if (!serverId)
+      return new NextResponse("Server ID missing", {
+        status: 400,
+      });
+    if (!params.memberId)
+      return new NextResponse("Member ID missing", { status: 400 });
+>>>>>>> v-2
 
     const server = await db.server.update({
       where: {
@@ -72,6 +87,7 @@ export async function PATCH(
 
     const serverId = searchParams.get("serverId");
 
+<<<<<<< HEAD
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
@@ -81,6 +97,15 @@ export async function PATCH(
     if (!params.memberId) {
       return new NextResponse("Member ID missing", { status: 400 });
     }
+=======
+    if (!profile) return new NextResponse("Unauthorized", { status: 401 });
+
+    if (!serverId)
+      return new NextResponse("Server ID missing", { status: 400 });
+
+    if (!params.memberId)
+      return new NextResponse("Member ID missing", { status: 400 });
+>>>>>>> v-2
 
     const server = await db.server.update({
       where: {

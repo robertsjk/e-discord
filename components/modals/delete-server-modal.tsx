@@ -1,4 +1,8 @@
 "use client";
+<<<<<<< HEAD
+=======
+import { useModal } from "@/hooks/use-modal-store";
+>>>>>>> v-2
 import {
   Dialog,
   DialogContent,
@@ -7,6 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
+<<<<<<< HEAD
 import { useModal } from "@/hooks/use-modal-store";
 import { Button } from "../ui/button";
 import { useState } from "react";
@@ -14,6 +19,14 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 export const DeleteServerModal = () => {
+=======
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import axios from "axios";
+import { Button } from "../ui/button";
+
+const DeleteServerModal = () => {
+>>>>>>> v-2
   const { isOpen, type, onClose, onOpen, data } = useModal();
   const router = useRouter();
 
@@ -44,7 +57,11 @@ export const DeleteServerModal = () => {
           <DialogTitle className="text-2xl text-center font-bold">
             Delete Server
           </DialogTitle>
+<<<<<<< HEAD
           <DialogDescription className="text-center text-zinc-500">
+=======
+          <DialogDescription className="text-center text-stone-600">
+>>>>>>> v-2
             Are you sure you want to do this{" "}
             <span className="font-semibold text-indigo-500">
               {server?.name}
@@ -52,7 +69,11 @@ export const DeleteServerModal = () => {
             will be permanently deleted. ?
           </DialogDescription>
         </DialogHeader>
+<<<<<<< HEAD
         <DialogFooter className="bg-gray-100 px-6 py-4">
+=======
+        <DialogFooter className="px-6 py-4">
+>>>>>>> v-2
           <div className="flex items-center justify-between w-full">
             <Button disabled={isLoading} onClick={onClose} variant="ghost">
               Cancel
@@ -66,3 +87,8 @@ export const DeleteServerModal = () => {
     </Dialog>
   );
 };
+<<<<<<< HEAD
+=======
+
+export default DeleteServerModal;
+>>>>>>> v-2

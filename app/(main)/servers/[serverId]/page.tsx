@@ -1,5 +1,9 @@
 import { currentProfile } from "@/lib/current-profile";
+<<<<<<< HEAD
 import db from "@/lib/db";
+=======
+import { db } from "@/lib/db";
+>>>>>>> v-2
 import { redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 

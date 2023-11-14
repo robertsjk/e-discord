@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 import { Server as NetServer } from "http";
 import { NextApiRequest } from "next";
 import { Server as ServerIO } from "socket.io";
 
 import { NextApiResponseServerIo } from "@/types";
+=======
+import { NextApiResponseServerIo } from "@/types";
+import { NextApiRequest } from "next";
+import { Server as NetServer } from "http";
+import { Server as ServerIO } from "socket.io";
+>>>>>>> v-2
 
 export const config = {
   api: {

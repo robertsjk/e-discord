@@ -2,7 +2,11 @@
 
 import { cn } from "@/lib/utils";
 import { Channel, ChannelType, MemberRole, Server } from "@prisma/client";
+<<<<<<< HEAD
 import { Edit, Hash, Lock, Mic, Trash, Video } from "lucide-react";
+=======
+import { Edit, Hash, Mic, Trash, Video, Lock } from "lucide-react";
+>>>>>>> v-2
 import { useParams, useRouter } from "next/navigation";
 import ActionTooltip from "../action-tooltip";
 import { ModalType, useModal } from "@/hooks/use-modal-store";
@@ -39,6 +43,7 @@ const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
     <button
       onClick={onClick}
       className={cn(
+<<<<<<< HEAD
         "group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition mb-1",
         params?.channelId === channel.id && "bg-zinc-700/20 dark:bg-zinc-700"
       )}
@@ -49,6 +54,18 @@ const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
           "line-clamp-1 font-semibold text-sm text-zinc-500 group-hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300 transition",
           params?.channelId === channel.id &&
             "text-primary dark:text-zinc-200 dark:group-hover:text-white"
+=======
+        "group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-card-foreground/5 transition mb-1",
+        params?.channelId === channel.id &&
+          "bg-card-foreground/10 hover:bg-card-foreground/10"
+      )}
+    >
+      <Icon className="flex-shrink-0 w-5 h-5 text-stone-500" />
+      <p
+        className={cn(
+          "line-clamp-1 font-semibold text-sm text-card-foreground/80 group-hover:text-card-foreground/90 transition",
+          params?.channelId === channel.id && "text-card-foreground/90"
+>>>>>>> v-2
         )}
       >
         {channel.name}
@@ -58,19 +75,31 @@ const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
           <ActionTooltip label="Edit">
             <Edit
               onClick={(e) => onAction(e, "editChannel")}
+<<<<<<< HEAD
               className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
+=======
+              className="hidden group-hover:block w-4 h-4 text-card-foreground/50 hover:text-card-foreground transition"
+>>>>>>> v-2
             />
           </ActionTooltip>
           <ActionTooltip label="Delete">
             <Trash
               onClick={(e) => onAction(e, "deleteChannel")}
+<<<<<<< HEAD
               className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
+=======
+              className="hidden group-hover:block w-4 h-4 text-card-foreground/50 hover:text-card-foreground transition"
+>>>>>>> v-2
             />
           </ActionTooltip>
         </div>
       )}
       {channel.name === "general" && (
+<<<<<<< HEAD
         <Lock className="ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400" />
+=======
+        <Lock className="ml-auto w-4 h-4 text-card-foreground/30" />
+>>>>>>> v-2
       )}
     </button>
   );

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { Server as NetServer, Socket } from "net";
 import { NextApiResponse } from "next";
 import { Server as SocketIOServer } from "socket.io";
 import { Member, Profile, Server } from "@prisma/client";
+=======
+import { Member, Profile, Server } from "@prisma/client";
+import { Socket, Server as NetServer } from "net";
+import { NextApiResponse } from "next";
+import { Server as SocketIOServer } from "socket.io";
+>>>>>>> v-2
 
 export type ServerWithMembersWithProfiles = Server & {
   members: (Member & { profile: Profile })[];

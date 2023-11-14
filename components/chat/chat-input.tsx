@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,6 +12,19 @@ import axios from "axios";
 import { useModal } from "@/hooks/use-modal-store";
 import EmojiPicker from "../emoji-picker";
 import { useRouter } from "next/navigation";
+=======
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import qs from "query-string";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Form, FormControl, FormField, FormItem } from "../ui/form";
+import { Plus } from "lucide-react";
+import { Input } from "../ui/input";
+import { useModal } from "@/hooks/use-modal-store";
+import { useRouter } from "next/navigation";
+import EmojiPicker from "../emoji-picker";
+>>>>>>> v-2
 
 type ChatInputProps = {
   apiUrl: string;
@@ -21,7 +35,11 @@ type ChatInputProps = {
 
 const formSchema = z.object({ content: z.string().min(1) });
 
+<<<<<<< HEAD
 export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
+=======
+const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
+>>>>>>> v-2
   const { onOpen } = useModal();
   const router = useRouter();
 
@@ -42,6 +60,10 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
       });
 
       await axios.post(url, values);
+<<<<<<< HEAD
+=======
+
+>>>>>>> v-2
       form.reset();
       router.refresh();
     } catch (error) {
@@ -60,6 +82,7 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
               <FormControl>
                 <div className="relative p-4 pb-6">
                   <button
+<<<<<<< HEAD
                     type="button"
                     onClick={() => onOpen("messageFile", { apiUrl, query })}
                     className="absolute top-7 left-8 h-[24px] w-[24px] bg-zinc-500 dark:bg-zinc-400 hover:bg-zinc-600 dark:hover:bg-zinc-300 transition rounded-full p-1 flex items-center justify-center"
@@ -69,6 +92,17 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
                   <Input
                     disabled={isLoading}
                     className="px-14 py-6 bg-zinc-200/90 dark:bg-zinc-700/75 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
+=======
+                    onClick={() => onOpen("messageFile", { apiUrl, query })}
+                    type="button"
+                    className="absolute top-7 left-8 h-6 w-6 bg-foreground/50 hover:bg-foreground/70 transition rounded-full p-1 flex items-center justify-center"
+                  >
+                    <Plus className="text-background" />
+                  </button>
+                  <Input
+                    disabled={isLoading}
+                    className="px-14 py-6 bg-foreground/10 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+>>>>>>> v-2
                     placeholder={`Message ${
                       type === "conversation" ? name : "#" + name
                     }`}
@@ -90,3 +124,8 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
     </Form>
   );
 };
+<<<<<<< HEAD
+=======
+
+export default ChatInput;
+>>>>>>> v-2
